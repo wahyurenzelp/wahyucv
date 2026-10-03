@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wahyu Rizqi Pratama — Siswa TKJ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    :root {
+        --bg: #f7f5f0;
+        --bg-card: #ffffff;
+        --text: #1a1a1a;
+        --text-soft: #4a4a4a;
+        --text-muted: #7a7a7a;
+        --border: #e5e0d8;
+        --accent: #c85a3c;
+        --accent-soft: #f4e8e2;
+        --dark: #2b2b2b;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        font-size: 15px;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+        font-family: 'Fraunces', serif;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+        line-height: 1.2;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    /* Layout */
+    .layout {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        background-color: var(--dark);
+        color: #e8e8e8;
+        padding: 48px 36px;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow-y: auto;
+    }
+
+    .profile-photo {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        background-color: var(--accent);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Fraunces', serif;
+        font-size: 2.4rem;
+        font-weight: 500;
+        margin-bottom: 28px;
+        letter-spacing: -0.02em;
+    }
+
+    .sidebar h1 {
+        font-size: 1.55rem;
+        color: #fff;
+        margin-bottom: 6px;
+    }
+
+    .sidebar .role {
+        font-size: 0.85rem;
+        color: #b8b8b8;
+        margin-bottom: 32px;
+        letter-spacing: 0.02em;
+    }
+
+    .sidebar-section {
+        margin-bottom: 32px;
+    }
+
+    .sidebar-section h3 {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--accent);
+        margin-bottom: 14px;
+    }
+
+    .info-list {
+        list-style: none;
+    }
+
+    .info-list li {
+        font-size: 0.88rem;
+        color: #d4d4d4;
+        margin-bottom: 10px;
+        padding-left: 0;
+        line-height: 1.5;
+    }
+
+    .info-list li .label {
+        display: block;
+        font-size: 0.72rem;
+        color: #888;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 2px;
+    }
+
+    .nav-list {
+        list-style: none;
+    }
+
+    .nav-list li {
+        margin-bottom: 4px;
+    }
+
+    .nav-list a {
+        display: block;
+        padding: 8px 0;
+        font-size: 0.9rem;
+        color: #c8c8c8;
+        transition: color 0.2s ease;
+        border-left: 2px solid transparent;
+        padding-left: 12px;
+    }
+
+    .nav-list a:hover {
+        color: #fff;
+        border-left-color: var(--accent);
+    }
+
+    /* Main Content */
+    .main {
+        padding: 80px 72px;
+        max-width: 900px;
+    }
+
+    .hero {
+        margin-bottom: 80px;
+        padding-bottom: 48px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .hero .eyebrow {
+        font-size: 0.78rem;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-weight: 500;
+        margin-bottom: 16px;
+    }
+
+    .hero h2 {
+        font-size: 2.8rem;
+        margin-bottom: 20px;
+        color: var(--text);
+        max-width: 650px;
+    }
+
+    .hero h2 em {
+        font-style: italic;
+        color: var(--accent);
+    }
+
+    .hero p {
+        font-size: 1.05rem;
+        color: var(--text-soft);
+        max-width: 580px;
+        line-height: 1.75;
+    }
+
+    /* Sections */
+    section {
+        margin-bottom: 72px;
+        scroll-margin-top: 40px;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+        margin-bottom: 8px;
+        color: var(--text);
+    }
+
+    .section-subtitle {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-bottom: 32px;
+        font-style: italic;
+        font-family: 'Fraunces', serif;
+    }
+
+    /* About */
+    .about-text {
+        font-size: 1rem;
+        color: var(--text-soft);
+        line-height: 1.8;
+        max-width: 640px;
+    }
+
+    .about-text p + p {
+        margin-top: 16px;
+    }
+
+    /* Education */
+    .edu-item {
+        padding: 24px 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .edu-item:first-child {
+        border-top: 1px solid var(--border);
+    }
+
+    .edu-period {
+        font-size: 0.8rem;
+        color: var(--accent);
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        margin-bottom: 6px;
+    }
+
+    .edu-title {
+        font-size: 1.15rem;
+        color: var(--text);
+        margin-bottom: 4px;
+        font-family: 'Fraunces', serif;
+        font-weight: 500;
+    }
+
+    .edu-school {
+        font-size: 0.92rem;
+        color: var(--text-muted);
+        margin-bottom: 10px;
+    }
+
+    .edu-desc {
+        font-size: 0.9rem;
+        color: var(--text-soft);
+        line-height: 1.7;
+    }
+
+    /* Skills */
+    .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .skill-group h4 {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 16px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid var(--accent);
+        display: inline-block;
+    }
+
+    .skill-list {
+        list-style: none;
+    }
+
+    .skill-list li {
+        font-size: 0.9rem;
+        color: var(--text-soft);
+        padding: 8px 0;
+        border-bottom: 1px dashed var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .skill-list li:last-child {
+        border-bottom: none;
+    }
+
+    .skill-level {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        font-style: italic;
+    }
+
+    /* Hobbies */
+    .hobbies {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .hobby-card {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border);
+        padding: 28px;
+        transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .hobby-card:hover {
+        border-color: var(--accent);
+        transform: translateY(-2px);
+    }
+
+    .hobby-card .hobby-icon {
+        width: 36px;
+        height: 36px;
+        background-color: var(--accent-soft);
+        color: var(--accent);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+        font-size: 1.1rem;
+    }
+
+    .hobby-card h4 {
+        font-family: 'Fraunces', serif;
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+        color: var(--text);
+    }
+
+    .hobby-card p {
+        font-size: 0.88rem;
+        color: var(--text-soft);
+        line-height: 1.6;
+    }
+
+    /* Projects */
+    .project-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .project-item {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border);
+        padding: 28px 32px;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 24px;
+        align-items: center;
+        transition: border-color 0.25s ease;
+    }
+
+    .project-item:hover {
+        border-color: var(--accent);
+    }
+
+    .project-number {
+        font-family: 'Fraunces', serif;
+        font-size: 1.8rem;
+        color: var(--accent);
+        font-style: italic;
+        font-weight: 400;
+    }
+
+    .project-info h4 {
+        font-family: 'Fraunces', serif;
+        font-size: 1.1rem;
+        color: var(--text);
+        margin-bottom: 4px;
+        font-weight: 500;
+    }
+
+    .project-info p {
+        font-size: 0.88rem;
+        color: var(--text-soft);
+    }
+
+    .project-tags {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+
+    .tag {
+        font-size: 0.72rem;
+        padding: 4px 10px;
+        background-color: var(--accent-soft);
+        color: var(--accent);
+        border-radius: 20px;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+    }
+
+    /* Contact */
+    .contact-box {
+        background-color: var(--dark);
+        color: #fff;
+        padding: 48px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .contact-box h3 {
+        font-size: 1.6rem;
+        color: #fff;
+        margin-bottom: 12px;
+    }
+
+    .contact-box p {
+        font-size: 0.92rem;
+        color: #b8b8b8;
+        line-height: 1.7;
+    }
+
+    .contact-details {
+        list-style: none;
+    }
+
+    .contact-details li {
+        margin-bottom: 18px;
+    }
+
+    .contact-details .label {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--accent);
+        margin-bottom: 4px;
+        font-weight: 500;
+    }
+
+    .contact-details .value {
+        font-size: 0.95rem;
+        color: #fff;
+    }
+
+    /* Footer */
+    footer {
+        padding: 32px 72px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.82rem;
+        color: var(--text-muted);
+    }
+
+    footer .signature {
+        font-family: 'Fraunces', serif;
+        font-style: italic;
+    }
+
+    /* Reveal animation */
+    .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+        .layout {
+            grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+            position: relative;
+            height: auto;
+            padding: 40px 32px;
+        }
+
+        .main {
+            padding: 56px 32px;
+        }
+
+        .hero h2 {
+            font-size: 2.1rem;
+        }
+
+        .skills-grid,
+        .hobbies {
+            grid-template-columns: 1fr;
+        }
+
+        .contact-box {
+            grid-template-columns: 1fr;
+            padding: 36px 28px;
+            gap: 28px;
+        }
+
+        .project-item {
+            grid-template-columns: auto 1fr;
+            padding: 22px 24px;
+        }
+
+        .project-tags {
+            grid-column: 1 / -1;
+            margin-top: 8px;
+        }
+
+        footer {
+            padding: 24px 32px;
+            flex-direction: column;
+            gap: 8px;
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .main {
+            padding: 40px 20px;
+        }
+
+        .sidebar {
+            padding: 32px 20px;
+        }
+
+        .hero h2 {
+            font-size: 1.7rem;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+        }
+
+        footer {
+            padding: 20px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="profile-photo">WR</div>
+        <h1>Wahyu Rizqi Pratama</h1>
+        <div class="role">Siswa TKJ · Kelas XI TKJ 3</div>
+
+        <nav class="sidebar-section">
+            <h3>Menu</h3>
+            <ul class="nav-list">
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#pendidikan">Pendidikan</a></li>
+                <li><a href="#keahlian">Keahlian</a></li>
+                <li><a href="#hobi">Hobi</a></li>
+                <li><a href="#proyek">Proyek</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-section">
+            <h3>Data Diri</h3>
+            <ul class="info-list">
+                <li>
+                    <span class="label">Nama</span>
+                    Wahyu Rizqi Pratama
+                </li>
+                <li>
+                    <span class="label">Kelas</span>
+                    XI TKJ 3
+                </li>
+                <li>
+                    <span class="label">Alamat</span>
+                    Pup, Sektor 5
+                </li>
+                <li>
+                    <span class="label">Hobi</span>
+                    Futsal & Sepakbola
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+
+        <!-- Hero -->
+        <header class="hero reveal">
+            <div class="eyebrow">Curriculum Vitae</div>
+            <h2>Siswa TKJ yang suka <em>ngoprek</em> jaringan dan main bola di sore hari.</h2>
+            <p>
+                Saya Wahyu, pelajar kelas 11 Teknik Komputer dan Jaringan. 
+                Tertarik pada dunia jaringan komputer, perakitan PC, dan administrasi server. 
+                Di luar jam sekolah, saya biasa menghabiskan waktu di lapangan futsal.
+            </p>
+        </header>
+
+        <!-- About -->
+        <section id="tentang" class="reveal">
+            <h2 class="section-title">Tentang Saya</h2>
+            <p class="section-subtitle">Sedikit cerita tentang siapa saya</p>
+            <div class="about-text">
+                <p>
+                    Saya tumbuh di lingkungan yang membuat saya cukup dekat dengan komputer sejak kecil. 
+                    Rasa penasaran itu membawa saya memilih jurusan Teknik Komputer dan Jaringan di SMK, 
+                    dan sampai sekarang saya masih menikmati proses belajar hal-hal teknis — mulai dari 
+                    crimping kabel UTP, konfigurasi router, sampai instalasi sistem operasi.
+                </p>
+                <p>
+                    Bagi saya, belajar TKJ itu seperti memecahkan teka-teki. Ada masalah, lalu kita 
+                    cari tahu penyebabnya, dan akhirnya menemukan solusi. Kebiasaan itu juga yang saya 
+                    bawa saat bermain futsal dan sepakbola: membaca situasi, kerja sama tim, dan 
+                    tidak cepat menyerah kalau sedang tertinggal.
+                </p>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section id="pendidikan" class="reveal">
+            <h2 class="section-title">Pendidikan</h2>
+            <p class="section-subtitle">Perjalanan belajar saya sejauh ini</p>
+
+            <div class="edu-item">
+                <div class="edu-period">2024 — Sekarang</div>
+                <div class="edu-title">Teknik Komputer dan Jaringan</div>
+                <div class="edu-school">SMK · Kelas XI TKJ 3</div>
+                <div class="edu-desc">
+                    Mempelajari instalasi dan konfigurasi jaringan komputer, perakitan PC, 
+                    administrasi server berbasis Linux dan Windows, serta troubleshooting 
+                    perangkat keras dan perangkat lunak.
+                </div>
+            </div>
+
+            <div class="edu-item">
+                <div class="edu-period">2021 — 2024</div>
+                <div class="edu-title">Sekolah Menengah Pertama</div>
+                <div class="edu-school">SMP</div>
+                <div class="edu-desc">
+                    Menyelesaikan pendidikan dasar. Mulai aktif di kegiatan olahraga sekolah 
+                    dan pertama kali serius menekuni futsal serta sepakbola.
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="keahlian" class="reveal">
+            <h2 class="section-title">Keahlian</h2>
+            <p class="section-subtitle">Hal-hal yang saya pelajari dan kuasai</p>
+
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <h4>Hard Skills</h4>
+                    <ul class="skill-list">
+                        <li>Instalasi Jaringan LAN <span class="skill-level">Menengah</span></li>
+                        <li>Crimping & Kabel UTP <span class="skill-level">Mahir</span></li>
+                        <li>Konfigurasi MikroTik <span class="skill-level">Dasar</span></li>
+                        <li>Perakitan PC <span class="skill-level">Mahir</span></li>
+                        <li>Instalasi Windows & Linux <span class="skill-level">Menengah</span></li>
+                        <li>Troubleshooting Hardware <span class="skill-level">Menengah</span></li>
+                    </ul>
+                </div>
+
+                <div class="skill-group">
+                    <h4>Soft Skills</h4>
+                    <ul class="skill-list">
+                        <li>Kerja Sama Tim <span class="skill-level">Dari olahraga</span></li>
+                        <li>Problem Solving <span class="skill-level">Terlatih</span></li>
+                        <li>Disiplin Waktu <span class="skill-level">Terbiasa</span></li>
+                        <li>Komunikasi <span class="skill-level">Cukup Baik</span></li>
+                        <li>Adaptasi Cepat <span class="skill-level">Aktif Belajar</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hobbies -->
+        <section id="hobi" class="reveal">
+            <h2 class="section-title">Hobi</h2>
+            <p class="section-subtitle">Yang saya lakukan di luar jam belajar</p>
+
+            <div class="hobbies">
+                <div class="hobby-card">
+                    <div class="hobby-icon">⚽</div>
+                    <h4>Sepakbola</h4>
+                    <p>
+                        Bermain sepakbola sudah jadi rutinitas sejak SMP. Selain menjaga 
+                        kebugaran, olahraga ini mengajarkan saya tentang strategi, kesabaran, 
+                        dan pentingnya komunikasi di lapangan.
+                    </p>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-icon">🥅</div>
+                    <h4>Futsal</h4>
+                    <p>
+                        Futsal jadi pilihan ketika cuaca tidak mendukung atau ingin latihan 
+                        yang lebih intens. Saya biasa bermain bersama teman-teman sekolah 
+                        di lapangan dekat rumah.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="proyek" class="reveal">
+            <h2 class="section-title">Proyek & Praktik</h2>
+            <p class="section-subtitle">Beberapa pekerjaan praktik selama di sekolah</p>
+
+            <div class="project-list">
+                <div class="project-item">
+                    <div class="project-number">01</div>
+                    <div class="project-info">
+                        <h4>Instalasi Jaringan LAN Laboratorium</h4>
+                        <p>Merancang dan memasang jaringan LAN untuk lab komputer sekolah.</p>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">LAN</span>
+                        <span class="tag">UTP</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-number">02</div>
+                    <div class="project-info">
+                        <h4>Perakitan PC Desktop</h4>
+                        <p>Merakit komputer dari komponen hingga siap digunakan untuk praktik.</p>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Hardware</span>
+                        <span class="tag">Assembly</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-number">03</div>
+                    <div class="project-info">
+                        <h4>Konfigurasi Router MikroTik Dasar</h4>
+                        <p>Setup IP address, DHCP, dan NAT pada router untuk jaringan sekolah.</p>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">MikroTik</span>
+                        <span class="tag">Router</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-number">04</div>
+                    <div class="project-info">
+                        <h4>Instalasi Sistem Operasi Dual Boot</h4>
+                        <p>Memasang Windows dan Linux pada satu komputer untuk kebutuhan praktikum.</p>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Windows</span>
+                        <span class="tag">Linux</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="kontak" class="reveal">
+            <div class="contact-box">
+                <div>
+                    <h3>Mari Terhubung</h3>
+                    <p>
+                        Kalau ada pertanyaan, kesempatan magang, atau sekadar ingin berdiskusi 
+                        seputar TKJ dan olahraga, saya terbuka untuk ngobrol.
+                    </p>
+                </div>
+                <div>
+                    <ul class="contact-details">
+                        <li>
+                            <div class="label">Alamat</div>
+                            <div class="value">Pup, Sektor 5</div>
+                        </li>
+                        <li>
+                            <div class="label">Kelas</div>
+                            <div class="value">XI TKJ 3</div>
+                        </li>
+                        <li>
+                            <div class="label">Email</div>
+                            <div class="value">wahyurizqi@example.com</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<footer>
+    <div>© 2026 Wahyu Rizqi Pratama</div>
+    <div class="signature">Dibuat dengan teliti, bukan dengan template jadi.</div>
+</footer>
+
+<script>
+    // Reveal on scroll
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    revealElements.forEach(el => observer.observe(el));
+
+    // Smooth scroll untuk navigasi sidebar
+    document.querySelectorAll('.nav-list a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
